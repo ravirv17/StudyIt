@@ -189,9 +189,11 @@ logger.error = (msg, options) => {
 	loggerError(msg, options);
 }
 
+
 export default defineConfig({
 	customLogger: logger,
 	plugins: [
+		[react()],
 		...(isDev ? [inlineEditPlugin(), editModeDevPlugin()] : []),
 		react(),
 		addTransformIndexHtml
@@ -218,5 +220,6 @@ export default defineConfig({
 				'@babel/types'
 			]
 		}
-	}
+	},
+	base: './',
 });
